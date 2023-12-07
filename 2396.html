@@ -7,11 +7,80 @@
 		<div class="page">
 			<h1>ArrayList</h1>
 			<p>
+				Java.util;
+				creation: <span class="semibold">var arrayList = new ArrayList&lt;Integer&gt;();</span>
+				(wrapper classes must be used for primitive types)
+			</p>
+			<p>
 				methods:
-				<span class="semibold">add(Object elem)</span> 
-				<span class="semibold">remove(int index)</span>
-				<span class="semibold">remove(Object elem)</span>
-				<span class="semibold">contains(Object elem)</span>
+				<span class="semibold">add(Object elem)</span>; 
+				<span class="semibold">remove(int index)</span>;
+				<span class="semibold">remove(Object elem)</span>;
+				<span class="semibold">contains(Object elem)</span>;
+				<span class="semibold">isEmpty()</span>;
+				<span class="semibold">indexOf(Object elem)</span>;
+				<span class="semibold">size()</span>;
+				<span class="semibold">get(int index)</span>
+			</p>
+			<p>sorting an ArrayList: <span class="semibold">Collections.sort(arrayList);</span></p>
+			<hr>
+			<h1>Object class</h1>
+			<p>
+				methods:
+				<span class="semibold">public boolean equals(Object obj)</span> (can be overriden);
+				<span class="semibold">public int hashCode()</span> (can be overriden;
+				for comparing if two variables <span class="semibold">foo</span> and <span class="semibold">bar</span>
+				contains the same info (instead of comparing if two refers to the same object),
+				<span class="semibold">foo.equals(bar)</span> should be equivalent to
+				<span class="semibold">foo.hashCode() == bar.hashCode()</span>);
+				<span class="semibold">public final Class getClass()</span> (returns a Class object that represents the runtime class
+				of the current object)
+				<span class="semibold">public String toString()</span> (can be overriden);
+			</p>
+			<p>
+				type casting: <span class="semibold">if (foo instanceof Bar) { var foo2 = (Bar) foo; }</span>
+			</p>
+			<hr>
+			<h1>Serialization</h1>
+			<p>
+				steps:
+				<span class="semibold">var fileStream = newFileOutputStream(fileName); var os = new ObjectOutputStream(fileStream);
+					os.writeObject(obj); os.close();
+				</span>
+			</p>
+			<p>
+				<span class="semibold">obj</span> must implement <span class="semibold">java.io.Serializable</span> and not contain
+				any non-serializable & non-transient properties;
+			</p>
+			<p>
+				mark properties as transient to exclude from serialization (e.g. <span class="semibold">transient int foo;</span>)
+			</p>
+			<p>
+				steps for deserialization:
+				<span class="semibold">var fileStream = new FileInputStream(fileName);
+					var os = new ObjectInputStream(fileStream);
+					obj = (ObjectType) os.readObject(); os.close();
+				</span> (transient properties are given default values)
+			</p>
+			<p>
+				<span class="semibold">version control</span>
+				Each time an object is serialized, it is stamped with a serialVersionUID which is computed based on information about the class structure;
+				If the class has been modified since the object was serialized, the class could have a different serialVersionUID;
+				When Java tries to deserialize an object, it compares the serialVersionUID of the serialized object with that of the class the JVM is using for deserializing the object;
+				If the 2 numbers do not match, the JVM assumes the class is not compatible with the previously-serialized object,this will result in an exception during deserialization;
+				serialVersionUID can be manually assigned (e.g. <span class="semibold">private static long serialVersionUID = 810L;</span>)
+				It is possible to keep the same serialVersionUID for a class even if it has been modified
+			</p>
+			<hr>
+			<p>
+				<span class="semibold">changes that affect compatibility</span> deleting a property, changing property type,
+				making non-transient property transient, moving any class in the inheritance hierarchy,
+				changing any relevant class to non-serializable, making non-static property static
+			</p>
+			<p>
+				<span class="semibold">changes that usually do not affect compatibility</span>
+				adding new properties/making transient properties non-transient (receives default value when object is deserialized),
+				adding/removing classes in the inheritance tree, changing property access level
 			</p>
 		</div>
 	</body>
