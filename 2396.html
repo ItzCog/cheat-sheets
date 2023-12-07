@@ -5,9 +5,8 @@
 	</head>
 	<body>
 		<div class="page">
-			<h1>ArrayList</h1>
+			<h1>java.util.ArrayList</h1>
 			<p>
-				Java.util;
 				creation: <span class="semibold">var arrayList = new ArrayList&lt;Integer&gt;();</span>
 				(wrapper classes must be used for primitive types)
 			</p>
@@ -22,7 +21,7 @@
 				<span class="semibold">size()</span>;
 				<span class="semibold">get(int index)</span>
 			</p>
-			<p>sorting an ArrayList: <span class="semibold">Collections.sort(arrayList);</span></p>
+			<p>sorting an ArrayList: <span class="semibold">java.util.Collections.sort(arrayList);</span></p>
 			<hr>
 			<h1>Object class</h1>
 			<p>
@@ -82,6 +81,52 @@
 				adding new properties/making transient properties non-transient (receives default value when object is deserialized),
 				adding/removing classes in the inheritance tree, changing property access level
 			</p>
+			<hr>
+			<p>
+				<span class="semibold">Plain text file I/O</span>
+				write: <span class="semibold">var fileWriter = new FileWriter(fileName);
+					fileWriter.write(text);
+					fileWriter.close();</span>
+				buffered write: <span class="semibold">
+					var writer = new BufferedWriter(fileWriter);
+					writer.write(text);
+					writer.close();
+				</span>
+				buffered read: <span class="semibold">
+					var fileReader = new FileReader(fileName);
+					var reader = new BufferedReader(fileReader);
+					String line = null;
+					while ((line = reader.readLine()) != null) { /* Handle input */ }
+					reader.close();
+				</span>
+			</p>
+			<hr>
+			<h1>Networking</h1>
+			<p>
+				client: <span class="semibold">var socket = new Socket(ip, port);</span>
+				server: <span class="semibold">var server = new ServerSocket(port); var socket = server.accept(); </span>
+				read: <span class="semibold">var streamReader = new InputStreamReader(socket.getInputStream());
+					var reader = new BufferedReader(streamReader);
+					String input = reader.readLine();</span>
+				write: <span class="semibold">var writer = new PrintWriter(socket.getOutputStream());
+					writer.println(content);
+					writer.flush(); // or close()
+				</span>
+			</p>
+			<hr>
+			<h1>Multithreading</h1>
+			<p>
+				creating a thread: <span class="semibold">class MyRunnable implements java.lang.Runnable {
+					public void run() { /* thread behaviour */ }
+				}</span>
+				starting a thread: <span class="semibold">
+					var threadJob = new MyRunnable(); var myThread = new java.lang.Thread(threadJob); myThread.start();
+				</span>
+			</p>
+			<p><span class="semibold">possible thread states</span> new, runnable, running, blocked</p>
+			<p>make thread sleep for some time <span class="semibold">java.lang.Thread.sleep(miliseconds);</span></p>
+			<p>mutual exclusion: mark the method with synchronized (e.g.
+				<span class="semibold">private void synchronized method() { /* ... */ }</span>)</p>
 		</div>
 	</body>
 </html>
