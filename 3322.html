@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div class="page">
+			<h1>Internet Basics, HTTP</h1>
+			<p>
+				<span class="semibold">What is the Internet</span> Users see it as services and applications:
+				Web and e-commerce; Email, texting, instant messenger; Social networking and blogs;
+				Music and video download/upload; Voice and video tele-conferencing
+			</p>
+			<p>
+				Networking professionals see it as an infrastructure: Platform on which above services run;
+				A huge and complicated network and is growing rapidly
+			</p>
+			<hr>
+			<p>
+				<span class="semibold">
+					Internet is a network that accommodates extant services plus new services that will be invented
+				</span>
+				Only provides the communication service, does not care about the data contents;
+				<span class="semibold">
+					Internet is designed to accommodate any network technology, allowing each technology to be used where appropriate
+				</span>
+				Does not restrict or dictate underlying network technologies
+			</p>
+			<hr>
+			<p>
+				<span class="semibold">Internet Architecture</span>
+				Follows a network of networks approach; Allows arbitrary networks to be included,
+				which could also be a network of networks; Uses IP routers to interconnect individual networks
+			</p>
+			<p>
+				Computers attached to the Internet are known as hosts;
+				Each host attaches to an access network, which in turn, attaches to a big network;
+				To a host, Internet appears to be one giant network
+			</p>
+			<hr>
+			<p>
+				<span class="semibold">What is WWW</span> The World Wide Web is one of the ways information can be shared over the Internet;
+				It allows documents to be linked to one another using hypertext links, thus forming a huge “web” of connected information
+			</p>
+			<p>
+				<span class="semibold">Revolution of WWW</span> The first Web was Read-only, static and somewhat mono-directional;
+				<span class="semibold">Web 2.0</span> (Since mid-2000s): With reading as well as writing, the web could become bi-directional;
+				Represented the move toward a more social, collaborative, interactive and responsive web.
+				<span class="semibold">Next Web candidates: </span>
+				<span class="semibold">Web3</span> a decentralized online ecosystem based on blockchain
+				<span class="semibold">Web 3.0</span> Semantic Web, Artificially Intelligence Web
+			</p>
+			<hr>
+			<p>
+				<span class="semibold">Core Features</span>
+				A URL to uniquely identify a resource on the WWW;
+				At two ends, there are two programs interacting by means of the HTTP protocol, which is in the form of client-server communication;
+				(The browser program which makes HTTP requests and that can display the HTML it receives; The web server software program that responds to HTTP requests.)
+				The HTTP protocol to describe how requests and responses operate;
+				HTML and CSS to publish documents;
+			</p>
+			<p>
+				<span class="semibold">URL</span>
+				In order to allow clients to request particular resources from the server, a naming mechanism is required so that the client knows how to ask the server for the file;
+				For the web that naming mechanism is the Uniform Resource Locator (URL)
+			</p>
+			<p>
+				<span class="semibold">URI (Uniform Resource Identifier)</span>
+				A URI is a compact sequence of characters that identifies an abstract or physical resource; URL is one type of URI that identifies the resource by its location on the network;
+				The other type of URI is the <span class="semibold">URN</span>, which identifies the resource by name or namespace:
+				Provides a way of uniquely naming a resource without specifying an access protocol or mechanism, and
+				without specifying a particular location
+			</p>
+			<hr>
+			<p>
+				<span class="semibold">Client-server communication</span>
+				Used by applications to establish communication; One application program acts as a <span class="semibold">server</span>
+				(Always starts execution first, usually always online;
+				Running on a host machine known by other peers;
+				Awaits contact from any peer)
+				The other application program becomes a <span class="semibold">client</span>
+				(Initiates contact to the server;
+				Requests for services and/or info;
+				Location is not important)
+				Once communication has been established, data can flow in either direction
+			</p>
+			<p>
+				<span class="semibold">Host to host communication</span>
+				For hosts to communicate with each other, they need:
+				Some method to identify the peer (Server domain name for client-server)
+				Some method to locate the peer (Server IP address)
+				Some method to deliver messages to the peer (Network path between client and server)
+			</p>
+			<p>
+				<span class="semibold">End to end communication</span>
+				Each communication service is “labelled” by a port number (must be known by all clients);
+				By the unique IP address and port number, the network can locate server programs
+			</p>
+			<hr>
+			<p>
+				<span class="semibold">Port numbers</span>
+				Valid range: 0 to 65535 (16 bits); Well-known ports: 0 to 1023 (only used by system processes & privileged users);
+				Registered ports: 1024 to 49151 (available for ordinary user processes & register with IANA (Internet Assigned Number Authority))
+				Dynamic and/or Private ports: 49152 to 65535
+			</p>
+			<p>
+				<span class="semibold">IPv4 addressing</span>
+				32-bit identifier, assigned to a network interface of a host/router, divided into two parts:
+				Prefix part which identifies physical network (locator), Suffix part which identifies a host on that physical network (identity)
+			</p>
+			<p>
+				<span class="semibold">Protocols</span>
+				A protocol is a set of rules that defines how the peers in the communication are interacting;
+				A communication protocol defines:
+				format of the message, order of the messages sent and received between two ends, actions taken on message transmission
+				and receipt
+			</p>
+		</div>
+	</body>
+</html>

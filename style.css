@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+h1 {
+    font-size: 14px;
+}
+
+.page {
+    padding: 4px;
+    height: 297mm;
+    width: 210mm;
+    border: 1px solid black;
+}
+
+.semibold {
+    font-weight: 600;
+}
