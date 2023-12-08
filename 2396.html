@@ -19,7 +19,8 @@
 				<span class="semibold">isEmpty()</span>;
 				<span class="semibold">indexOf(Object elem)</span>;
 				<span class="semibold">size()</span>;
-				<span class="semibold">get(int index)</span>
+				<span class="semibold">get(int index);</span>
+				<span class="semibold">toArray();</span>
 			</p>
 			<p>sorting an ArrayList: <span class="semibold">java.util.Collections.sort(arrayList);</span></p>
 			<hr>
@@ -127,6 +128,87 @@
 			<p>make thread sleep for some time <span class="semibold">java.lang.Thread.sleep(miliseconds);</span></p>
 			<p>mutual exclusion: mark the method with synchronized (e.g.
 				<span class="semibold">private void synchronized method() { /* ... */ }</span>)</p>
+			<hr>
+			<h1>GUI</h1>
+			<p>
+				create & display window: <span class="semibold">var frame = new javax.swing.JFrame(); frame.add(elem);
+					frame.setSize(x, y); frame.setVisible(true); </span>
+				create action listener class: <span class="semibold">class MyActionListener implements java.awt.event.ActionListener
+					{ public void actionPerformed(java.awt.event.ActionEvent event) { /* ... */ }} </span>
+				create button with listener: <span class="semibold">var button = new javax.swing.JButton(displayText);
+					button.addActionListener(new MyActionListener()); frame.add(button); </span>
+				create custom panel class: <span class="semibold">public class MyPanel extends javax.swing.JPanel {
+					public void paintComponent(java.awt.Graphics g) { /* ... */ }
+				} </span>
+			</p>
+			<p>Graphics class methods: <span class="semibold">drawImage(Image img, int x, int y, ImageObserver observer);</span>
+				(e.g. <span class="semibold">var image = new ImageIcon(fileName).getImage(); g.drawImage(image, x, y, this);</span>)
+				<span class="semibold">drawLine(int x1, int y1, int x2, int y2); drawOval(int x, int y, int width, int height);
+					drawPolygon(int[] xPoints, int[] yPoints, int nPoints); drawRect(int x, int y, int width, int height);
+					fillOval(int x, int y, int width, int height);
+					fillPolygon(int[] xPoints, int[] yPoints, int nPoints); fillRect(int x, int y, int width, int height);
+					setColor(java.awt.Color color);
+				</span>
+			</p>
+			<p>setting gradient:
+				<span class="semibold">public void paintComponent(java.awt.Graphics g) { var g2d = (Graphics2D) g; var paint =
+					new GradientPaint(x1, y1, color1, x2, y2, color2); g2d.setPaint(paint); }
+				</span>
+			</p>
+			<p>
+				refresh window and all elements inside: <span class="semibold">frame.repaint();</span>
+			</p>
+			<hr>
+			<h1>GUI Layout</h1>
+			<p>
+				<span class="semibold">BorderLayout</span> Divides the area into 5 regions (EAST, WEST, SOUTH, NORTH, CENTER), each
+				region accepts one element; Default layout for JFrame
+				(e.g. <span class="semibold">frame.add(elem, javax.swing.BorderLayout.EAST);</span> (default value for the 2nd argument
+				is <span class="semibold">javax.swing.BorderLayout.CENTER</span>))
+				Elements in SOUTH/NORTH region gets preferred height and 100% width; Elements in EAST/WEST region gets preferred width
+				and all height left over from SOUTH/NORTH; Elements in CENTER gets all width &amp; height left over
+			</p>
+			<p>
+				<span class="semibold">FlowLayout</span> Elements are placed from left to right in the order they are added; Elements
+				get their preferred width &amp; height; When an element does not fit horizontally, it drops to the next line;
+				Default layout for JPanel
+			</p>
+			<p>
+				<span class="semibold">BoxLayout</span> Similar to flow layout, can choose to align elements on X_AXIS or Y_AXIS
+				(e.g. <span class="semibold">elem.setLayout(new BoxLayout(elem, javax.swing.BoxLayout.Y_AXIS));</span>)
+			</p>
+			<p>
+				<span class="semibold">GridBagLayout</span> Most flexible &amp; complex; Each row/column can have different height/width
+				values; Each element can span multiple rows/columns; Use <span class="semibold">Java.awt.GridBagConstraints</span> to
+				control child element layout
+			</p>
+			<hr>
+			<p>
+				<span class="semibold">public GridBagConstraints(int gridx, int gridy, int gridwidth, int gridheight, double weightx, double weighty, int anchor, int fill,
+					Insets insets, int ipadx, int ipady)</span>
+					<span class="semibold">gridx</span> specifies the cell containing the leading edge of the element's display area
+					<span class="semibold">gridy</span> specifies the cell at the top of the element's display area
+					<span class="semibold">gridwidth</span> specifies the number of cells in a row for the element's display area
+					<span class="semibold">gridheight</span> specifies the number of cells in a column for the element's display area
+					<span class="semibold">weightx</span> specifies how to distribute extra horizontal space
+					<span class="semibold">weighty</span> specifies how to distribute extra vertical space
+					<span class="semibold">anchor</span> specifies how to place the component when it is smaller than its display area
+					<span class="semibold">fill</span> specifies how to resize the component when it is smaller than its display area
+					<span class="semibold">insets</span> specifies the external padding of the component
+					<span class="semibold">ipadx, ipady</span> specifies the internal padding of the component
+			</p>
+			<p>
+				usage: <span class="semibold">
+					var panel = new JPanel();
+					var c = new Java.awt.GridBagConstraints(/* ... */);
+					panel.add(elem0, c);
+					/* edit properties of c */
+					panel.add(elem1, c);
+					/* edit properties of c */
+					panel.add(elem2, c);
+					/* ... */
+				</span>
+			</p>
 		</div>
 	</body>
 </html>
