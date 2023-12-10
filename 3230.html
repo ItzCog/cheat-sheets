@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div>
+			<h1>What is an Operating System</h1>
+			<p>
+				A program that controls the execution of application programs;
+				primarily as a resource manager:
+ 				managing resources (CPUs, memory, disks, files, etc.) &amp;
+				decides between conflicting requests for efficient and fair use of resources;
+				an interface between applications and hardware, separates applications from the hardware they access
+				(OS provides the APIs for programs to ask for OS services/resources)
+			</p>
+			<p>
+				<span class="semibold">Core services</span>
+				Allow applications to run on the system (easily, correctly, and effectively);
+				Allow running applications to use memory as well as share the memory;
+				Allow running applications to interact with each other;
+				Allow applications to access and share data that stored in persistent storage
+			</p>
+			<p>
+				<span class="semibold">Design goals of OS</span>
+				Makes the system convenient and easy to use by abstraction;
+				Provides protection between applications and between OS and applications;
+				Allows computer system resources to be used in an efficient manner;
+				Can operate on many hardware configurations;
+				Provides a high degree of reliability and will not fail due to isolated application/hardware errors;
+				Protect resources from unauthorized access by users and software;
+				Security, energy-efficiency, mobility, etc.
+			</p>
+			<hr>
+			<h1>OS Architecture</h1>
+			<p>
+				Operating system architectures help manage complexity: Organize operating system components (functionalities);
+				Specify the privilege level with which each component executes
+			</p>
+			<p>
+				Common options: Monolithic Architecture, Layered Architecture, Microkernel Architecture, Modular Approach
+				(Hybrid Kernels: compromise between the monolithic and microkernel designs)
+			</p>
+			<p>
+				<span class="semibold">Monolithic Architecture</span> Every OS component is contained in the kernel;
+				Traditionally, OS code did not structure its components as modules with clearly defined interfaces,
+				all its components are interwoven into one large program that runs in privilege mode;
+				Any component within kernel can directly communicate with any other &amp;
+				data structures are easily shared as all in one program;
+				Pros: Tend to be highly efficient;
+				Cons: Components can interact with hardware directly;
+				Architecture dependent code was spread throughout the kernel;
+				Components can access each other's data and functions directly;
+				Changes made in one component could affect other components;
+				Bugs in one component can adversely affect another component;
+				Difficulty in determining source of subtle errors;
+				More susceptible to damage from malicious code
+			</p>
+			<p>
+				<span class="semibold">Layered Architecture</span>
+				Groups components that perform similar function or specific role into a
+				module and layers the modules one on top of the other;
+				Each layer communicates only with layers immediately above and below it;
+				Process requests might pass through many layers before being serviced;
+				System efficiency can be less than monolithic kernels;
+				Pros: Simplicity of construction and debugging
+				(Allows debugging starting at lowest layer, adding one layer at a time until the whole system works correctly);
+				Information hiding - each layer only knows the interface provided by immediate lower layer;
+				Designers have a choice where to draw the kernel-user boundary;
+				Cons:
+				Poor performance; Difficult to define and order layers; Not flexible;
+				Disjunction between model and reality: real systems are more complex, difficult for such layered abstraction
+			</p>
+			<p>
+				<span class="semibold">Microkernel Architecture</span>
+				Moves as many functionalities from the kernel space into user space processes (servers);
+				Attempt to keep kernel small;
+				Pros:
+				Extensible, portable and scalable;
+				More secure & reliable (less code is running in kernel mode);
+				Cons:
+				Poor performance, server processes are interacting by means of message exchanges, which need the helps from kernel;
+				Induce significant performance overhead because of communications have to go through kernel;
+			</p>
+			<p>
+				<span class="semibold">Modular Approach</span>
+				Adopts the monolithic architecture, but implement kernel modules;
+				Each core component is separated and implemented as module
+				The whole kernel is a collection of modules
+				Overall, similar to layers but is more flexible and efficient:
+				Each kernel module has well-defined, protected interfaces; any module can call any other module;
+				More efficient to communicate between modules as they are all in kernel;
+				Allows certain features to be implemented dynamically and loaded as needed (dynamically loadable modules);
+				Memory is conserved as only required modules are loaded in memory;
+				More extensible as kernel modules can be modified separately and new;
+				Modules can be added easily
+			</p>
+			<hr>
+			<p>
+				<h1>CPU Virtualization</h1>
+				<span class="semibold">Process control block</span> typically includes:
+				process identification number (PID), current process state, program counter, register context
+				(a snapshot of the register contents in which the process was last running before it transitioned out of the running state),
+				scheduling info (process priority, pointers to scheduling queues, etc.), credentials (determines the resources this process can access),
+				memory management info, accounting info (CPU usage statistics, time limits, etc.), a pointer to the process's parent process,
+				pointers to the process's child processes, pointers to allocated resources, etc.
+			</p>
+			<p>
+				<span class="semibold">Process table</span> To manage many processes, OS needs someway to quickly access process's PCB;
+				OS keeps pointers to each process's PCB in a table; When a process is “completely” terminated, OS removes the process
+				from the process table and frees all of the process's resources
+			</p>
+			<p>
+				<span class="semibold">Process list structures</span> OS maintains a ready list and a blocked list that store references
+				to processes not currently running
+			</p>
+			<hr>
+		</div>
+	</body>
+</html>
