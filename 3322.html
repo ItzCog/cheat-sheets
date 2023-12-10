@@ -4,8 +4,8 @@
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-		<div class="page">
-			<h1>Internet Basics, HTTP</h1>
+		<div>
+			<h1>Internet Basics</h1>
 			<p>
 				<span class="semibold">What is the Internet</span> Users see it as services and applications:
 				Web and e-commerce; Email, texting, instant messenger; Social networking and blogs;
@@ -117,7 +117,157 @@
 			</p>
 			<hr>
 			<p>
-				<span class="semibold">DNS</span> translates human-readable domain names into the binary addresses used by the Internet Protocol
+				<span class="semibold">DNS</span> translates human-readable domain names into the binary addresses used by the Internet Protocol;
+				Reverse looks up the domain name from an IP address; Looks up the information of the Email server and DNS server of a domain;
+				Load distribution: Maps one domain name to a set of IP addresses (e.g. replicated Web servers)(Different users may select different
+				machine for requesting services)
+			</p>
+			<p>
+				<span class="semibold">Domain names &amp; levels</span> Domain names are hierarchical; Domain name is a sequence of labels with dots in between
+				and it defines a realm of administrative autonomy of Internet hosts; Most specific label is on the left and most significant label is on the right;
+				Rightmost label known as a top-level domain (TLD)
+			</p>
+			<p>
+				<span class="semibold">Distributed hierarchical database</span> four levels of DNS servers:
+				<span class="semibold">Root Name Servers</span> The highest level which have information on all TLD name servers;
+				Publicly known by all local name servers and response DNS queries from local name servers with the correct TLD name
+				servers' information; There are 13 root name servers worldwide
+				<span class="semibold">TLD Servers</span> Each top-level domain has its own set of name servers that are responsible
+				for providing information under its domain subtree; They know the authoritative servers of a particular subdomain
+				in its subtree
+				<span class="semibold">Authoritative DNS Servers</span> Each organization should have at least one authoritative
+				DNS server; These servers provide authoritative answers to all DNS lookup requests for any publicly accessible
+				organization computers if they offer publicly accessible hosts
+				<span class="semibold">Local (Default) Name Servers</span>
+				Each network service provider must provide one or more local DNS server for supporting DNS requests initiated by internal
+				client machines; Applications run on internal machines contact the local DNS server to lookup the mappings; If local DNS
+				server has the information, returns the answers immediately; otherwise, local server sends the requests to the root name
+				server for answers
+			</p>
+			<p>
+				<span class="semibold">DNS caching</span> Once the name server knows the mapping information, it caches it in the memory;
+				Caching improves efficiency and reduces DNS traffic; A cached mapping is removed after some configured time
+			</p>
+			<hr>
+			<h1>HTTP</h1>
+			<p>
+				HTTP is the foundation of data communication for the WWW;
+				It is an application layer protocol that is sent over TCP;
+				The protocol specifies format and meaning of messages exchanged between clients and servers;
+				Each message has control information and message content presented in plaintext format, but
+				it supports transmission of arbitrary binary data;
+				Can download or upload data
+			</p>
+			<p>
+				Follows a classical client-server communication model:
+				The client (a web browser) first initiates a TCP connection to the Web server;
+				After that, it sends a request to the connected Web server;
+				Then it waits for the response from the server
+			</p>
+			<p>
+				HTTP/0.9 was called the one-line protocol and only supported the GET request;
+				HTTP headers were introduced in HTTP/1.0;
+				Added the status code info in the response messages;
+				HTTP/1.0 has one major issue: A new TCP connection is opened for each request/response exchange.
+			</p>
+			<hr>
+			<p>
+				<span class="semibold">HTTP/1.1</span> is still widely used at the moment;
+				It introduced the concept of reusing the TCP connection (aka Persistent Connection) for multiple request/response exchanges;
+				It supports pipelining requests, i.e. sending a second request even before the first response is back;
+				Adding caching mechanism to reduce data traffic;
+
+				Support content negotiation between the client and server:
+				Clients can specify the best suited representation of data for the user, e.g. language, encoding, image format
+			</p>
+			<hr>
+			<p>
+				HTTP message types: request, response;
+				<span class="semibold">format</span> multi-line plain text; a single start line (request line for requests, 
+				status line for responses), a set of headers, a blank line indicating end of header block, an optional
+				message body
+			</p>
+			<hr>
+			<p>
+				<span class="semibold">Web caching</span> is a technique that stores a copy of a given resource and serves it
+				back when being requested in the future; Cache is close to client thus reduces the response time;
+				Decreases network traffic to distant servers
+			</p>
+			<p>
+				<span class="semibold">Two kinds of caches</span> Private browser caches &amp; Proxy servers set up by the
+				company/organization/network service provider
+			</p>
+			<p>
+				<span class="semibold">Response headers related to caching</span>
+				Cache-Control header: Specifies the number of seconds that this resource is considered to be fresh relative to the time of the request;
+				Expires: Specifies the date/time after which the response is considered stale
+			</p>
+			<p>
+				<span class="semibold">Validation</span>
+				HTTP uses two response headers and a request header to perform validation
+				<span class="semibold">Response</span> Etag: an identifier for a specific version of a resource,
+				generated by the server whenever the resource is updated;
+				Last-Modified header: contains the date and time at which the origin server believes the resource was last modified
+				<span class="semibold">Request</span> Normal GET with the If-None-Match header and/or If-Modified-Since header
+			</p>
+			<hr>
+			<p>
+				<span class="semibold">Cookies</span> allow Session management/Personalization/Tracking;
+				A small piece of data that a server 'sends' to the browser with the Set-Cookie header;
+				The browser may store it and send it back with the next request to the same server with the Cookie header
+			</p>
+			<hr>
+			<h1>HTML</h1>
+			<p>
+				<span class="semibold">Form elements</span>
+				form, input, textarea, button, label, datalist, fieldset, legend, select, option, optgroup;
+				form method: <span class="semibold">get</span> Ideal for short forms (searching/retrieving data
+				from server); Limited of characters in the form data; Data can be seen in the address bar & remains in
+				browser history and cache <span class="semibold">post</span> Ideal for long data/binary data/sensitive
+				data; Submitted data is not stored in cache, history, or bookmarks
+			</p>
+			<hr>
+			<p>
+				<span class="semibold">form</span> form controls live inside form tags &lt;form method="..." action="..."&gt;&lt;/form&gt;
+				<span class="semibold">text</span> single line entry box &lt;input type="text" name="..." size="..." maxlength="..."&gt;
+				<span class="semibold">textarea</span> multiline entry box &lt;textarea name="..." cols="..." rows="..."&gt;...&lt;/textarea&gt;
+				<span class="semibold">password</span> single line entry box for passwords &lt;input type="password" name="..." size="..." maxlength="..."&gt;
+				<span class="semibold">hidden</span> invisible data &lt;input type="hidden" name="..." value="..."&gt;
+				<span class="semibold">radio</span> single choice &lt;input type="radio" name="..." value="..."&gt;...&lt;input type="radio" name="..."
+				value="..." checked&gt;... ...
+				<span class="semibold">checkbox</span> multiple choices &lt;input type="checkbox" name="..." value="..."&gt;...&lt;input type="checkbox" name="..."
+				value="..." checked&gt;... ...
+				<span class="semibold">select</span> drop down menu &lt;select name="..."&gt;&lt;option value="..."&gt;...&lt;/option&gt;
+				&lt;option value="..."&gt;...&lt;/option&gt;&lt;option value="..."&gt;...&lt;/option&gt;...&lt;/select&gt;
+				<span class="semibold">submit</span> submit button &lt;input type="submit" value="..."&gt;
+				<span class="semibold">reset</span> reset button &lt;input type="reset"&gt;
+				<span class="semibold">email</span> entry box for email &lt;input type="email" name="..."&gt;
+				<span class="semibold">url</span> entry box for URL &lt;input type="url" name="..."&gt;
+				<span class="semibold">search</span> entry box for search string &lt;input type="search" name="..."&gt;
+				<span class="semibold">date</span> date input &lt;input type="date" name="..."&gt;
+			</p>
+			<hr>
+			<p><span class="semibold">Semantic tags</span> footer, header, main, nav, article, section, aside
+				<span class="semibold">figure &amp; figcaption</span>
+				&lt;figure&gt;&lt;img ...&gt;&lt;figcaption&gt;...&lt;/figcaption&gt;&lt;/figure&gt;
+				<span class="semibold">details &amp; summary</span> details create an widget that can be expanded and collapsed;
+				summary creates heading inside details 
+				&lt;details&gt;&lt;summary&gt;...&lt;/summary&gt;...&lt;/details&gt;
+				<span class="semibold">time</span> human-readable date/time; can include a datetime attribute including
+				a machine-readable date/time &lt;time datetime="..."&gt;...&lt;/time&gt;
+				<span class="semibold">mark</span> highlights text &lt;mark&gt;...&lt;/mark&gt;
+			</p>
+			<hr>
+			<p><span class="semibold">Table</span>
+				&lt;table&gt;&lt;tr&gt;&lt;th&gt;...&lt;/th&gt;...&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;...&lt;/td&gt;...&lt;/tr&gt;...&lt;/table&gt;
+				use colspan/rowspan attribute to span multiple columns/rows;
+				other tags: <span class="semibold">caption</span> use for title of the table;
+				<span class="semibold">thead, tfoot, tbody</span> (tfoot comes before tbody)
+			</p>
+			<hr>
+			<h1>CSS</h1>
+			<p>
+				Responsive web design: add tag &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt; to HTML head;
 			</p>
 		</div>
 	</body>
