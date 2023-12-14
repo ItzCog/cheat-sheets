@@ -270,6 +270,86 @@
 				Responsive web design: add tag &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt; to HTML head;
 				CSS: @media only screen and (/* condition */) and (/* condition */) /* ... */ { /* styling */ }
 			</p>
+			<hr>
+			<h1>JavaScript</h1>
+			<p>
+				<span class="semibold">export</span>
+				default export (one per module): export default expr; export default function fname() { /* ... */ };
+				export { nameX as default };
+				named exports (any number): export function fname() { /* ... */ }; export const nameX;
+				export { nameX, nameY, nameZ /* ... */}, export { nameX as aliasX, nameY as aliasY /* ... */}
+			</p>
+			<p>
+				<span class="semibold">import</span>
+				import default: import nameX from 'src.js';
+				import all: import * as aliasX from 'src.js'; aliasX.fname();
+				import with alias: import { fname as falias } from 'src.js';
+				import multiple: import { nameX, nameY } from 'src.js';
+			</p>
+			<hr>
+			<p>
+				<span class="semibold">DOM</span>
+				Platform and language neutral interface that will allow programs and scripts to dynamically access
+				and update the content, structure and style of documents
+			</p>
+			<p>
+				<span class="semibold">DOM node properties &amp; methods</span>
+				attributes, childNodes, firstChild, lastChild, nextSibling, nodeName, nodeType, nodeValue, parentNode, previousSibling;
+				appendChild(), cloneNode(), hasChildNodes(), insertBefore(), isSameNode(), removeChild(), replaceChild()
+			</p>
+			<hr>
+			<p>
+				<span class="semibold">Document object properties &amp; methods</span>
+				doctype, forms, head, title, createAttribute(), createElement(), createTextNode(), getElementByID(),
+				getElementsByClassName(), getElementsByTagName(), querySelector(), querySelectorAll(), write()
+			</p>
+			<p>
+				(adding an HTML element: const elem = document.createElement('p' /* html tag */);
+				const text = document.createTextNode('content');
+				elem.appendChild(text);
+				/* add elem to destinated place */)
+			</p>
+			<hr>
+			<p>
+				<span class="semibold">Element node properties &amp; methods</span>
+				attributes, className, id, innerHTML, style, tagName, addEventListener(),
+				getAttribute(), setAttribute(), removeAttribute(), removeEventListener()
+			</p>
+			<hr>
+			<p>
+				<span class="semibold">Events</span> common events: click, dbclick, mousedown, mousemove, mouseout, mouseover,
+				mouseup, error, DOMContentLoad, load, resize, unload, keypress, keydown, keyup
+			</p>
+			<p>
+				Register event: elem['on' + eventName] = function() {/* ... */};
+				or elem.addEventListener(eventName, (e) => { /* ... */}, useCapture);
+			</p>
+			<p>
+				Two event propagation <span class="semibold">Bubbling</span> When an event is fired on an element:
+				First checks whether that element has an event handler on that event, and runs it if so;
+				Then checks the next immediate ancestor element and does the same thing, then the next ancestor, and so on until it reaches the html element;
+				Default behaviour for modern browsers
+				<span class="semibold">Capturing</span>
+				Checks to see if the onclicked element's outer-most ancestor (html) has an onclick event handler registered for capturing, and runs it if so;
+				Then it moves on to the next element inside html and does the same thing, then the next one, and so on until it reaches the onclicked element
+			</p>
+			<p>
+				<span class="semibold">Event object properties &amp; methods</span>
+				bubbles, cancelable, currentTarget, defaultPrevented, target, type, preventDefault(), stopPropagation()
+			</p>
+			<hr>
+			<p>
+				<span class="semibold">Form validation</span>
+			</p>
+			<p>
+				<span class="semibold">CSS pseudo classes for validation</span> :valid, :invalid
+			</p>
+			<p>
+				<span class="semibold">Form element properties &amp; methods for validation</span>
+				validity, validity.patternMismatch, validity.rangeOverflow, validity.rangeUnderflow, 
+				validity.tooLong, validity.valueMissing, checkValidity(), setCustomValidity()
+			</p>
+			<hr>
 		</div>
 	</body>
 </html>
