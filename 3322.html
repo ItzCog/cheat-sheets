@@ -266,6 +266,10 @@
 			</p>
 			<hr>
 			<h1>CSS</h1>
+			<p class="tba">
+				TBA
+			</p>
+			<hr>
 			<p>
 				Responsive web design: add tag &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt; to HTML head;
 				CSS: @media only screen and (/* condition */) and (/* condition */) /* ... */ { /* styling */ }
@@ -350,6 +354,137 @@
 				validity.tooLong, validity.valueMissing, checkValidity(), setCustomValidity()
 			</p>
 			<hr>
+			<h1>AJAX &amp; JSON</h1>
+			<p>
+				Asynchronous JavaScript with XML (AJAX) is a term used to describe a paradigm that allows a web browser to make
+				quick, incremental updates to the web page without reloading the entire page; This makes the application faster
+				and more responsive to user actions
+			</p>
+			<p>
+				<span class="semibold">XMLHttpRequest</span> creating a new XMLHttpRequest object: const req = new
+				XMLHttpRequest(); define the request: req.open(method, url, async, user, password); modify header:
+				req.setRequestHeader(title, content); send the request: req.send(str); (str argument only used for POST)
+			</p>
+			<p>
+				<span class="semibold">Properties</span> onreadystatechange, readyState, onload, responseType, response,
+				responseText, responseXML, status, statusText
+			</p>
+			<hr>
+			<p>
+				<span class="semibold">Promises</span> const promise = new Promise((resolve, reject) => { /* ... */ });
+				promise.then(data => { /* ... */ }).then(data => { /* ... */ }).catch(err => { /* ... */ });
+			</p>
+			<p>
+				<span class="semibold">Response object properties &amp; methods</span> status, statusText, ok, headers,
+				url, type, redirected, text(), json(), blob(), arrayBuffer(), formData()
+			</p>
+			<p>
+				fetch(url, {method: "METHOD", body: "...", headers: {key1: value1, key2:, value2}}).then(data => {/* ... */});
+			</p>
+			<p>
+				<span class="semibold">async/await</span> async function f() { const response = await fetch(...);
+					const data = await response.text(); /* ... */ }
+			</p>
+			<hr>
+			<p>
+				<span class="semibold">Using JSON in Javascript</span>
+				JSON.stringify(object); JSON.parse(str);
+			</p>
+			<hr>
+			<h1>Geolocation API</h1>
+			<p>
+				<span class="semibold">navigator.geolocation</span>
+				The geolocation interface implemented by the Navigator object;
+				methods: getCurrentPosition(), watchPosition(), clearWatch()
+			</p>
+			<p>
+				usage: navigator.geolocation.getCurrentPosition((position) => { /* ... */ }, (err) => { /* ... */ });
+				properties: position.coords.latitude, position.coords.longitude
+			</p>
+			<hr>
+			<h1>Canvas</h1>
+			<p>
+				Adding canvas to page: &lt;canvas height="..." width="..."&gt;fallback content&lt;/canvas&gt;
+				Get canvas context: const ctx = document.querySelector('canvas').getContext('2d');
+			</p>
+			<p>
+				<span class="semibold">Context properties &amp; methods</span>
+				drawing rect: fillRect(x1, y1, x2, y2), strokeRect(x1, y1, x2, y2), clearRect(x1, y1, x2, y2);
+				drawing path: beginPath(), endPath(), moveTo(x, y), lineTo(x, y), arc(x, y, radius, startAngle, endAngle, goesCounterclockwise),
+				quadraticCurveTo(), bezierCurveTo(), stroke(), fill();
+				text &amp; color: font, textAlign, fillText(text, x, y), strokeText(text, x, y), fillStyle, strokeStyle,
+				createLinearGradient(), createRadialGradient()
+				drawing image: drawImage(img, x, y), drawImage(img, x, y, width, height),
+				drawImage(img, sx, sy, swidth, sheight, x, y, width, height)
+			</p>
+			<p>
+				(<span class="semibold">Creating and using a linear gradient</span>
+				const grd = ctx.createLinearGradient(x1, y1, x2, y2);
+				grd.addColorStop(0, color0); grd.addColorStop(1, color1); /* ... */
+				ctx.fillStyle = grd; /* fill */
+				)
+			</p>
+			<p>
+				<span class="semibold">Images in canvas</span>
+				const img = new Image(); img.src = url; img.onload = () => { /* use one of the drawImage methods */ }
+			</p>
+			<hr>
+			<h1>Audio &amp; Video</h1>
+			<p>
+				&lt;audio&gt;&lt;source src="..." type="..."&gt;&lt;source src="..." type="..."&gt; fallback content &lt;/audio&gt;
+				supported audio types: wav, mp3, ogg; source tag allows specifying alternative audio files which the browser
+				may choose from; audio tag attributes: autoplay, controls, loop, muted
+			</p>
+			<hr>
+			<p>
+				&lt;video&gt;&lt;source src="..." type="..."&gt; fallback content &lt;/video&gt;
+				video tag attributes: autoplay, controls, loop, muted, poster (an image for video thumbnail),
+				preload (none | auto | metadata)
+			</p>
+			<hr>
+			<p>
+				<span class="semibold">JavaScript API for audio and video</span>
+				methods: play(), load(), pause(), addTextTrack();
+				properties: currentTime, duration, ended, readyState, volume;
+				events: play, pause, ended, canplay, waiting, playing
+			</p>
+			<hr>
+			<h1>Drag and Drop</h1>
+			<p class="tba">
+				TBA
+			</p>
+			<hr>
+			<h1>Storage</h1>
+			<p>
+				<span class="semibold">Local storage</span>
+				The data in local storage would persist even when the browser is closed and reopened;
+				Each site has its own separate storage area. The data is available to all scripts loaded
+				from pages from the same site; e.g. a page visit count, user-authored documents
+				<span class="semibold">Session storage</span>
+				Only stores data for one session, will be deleted from the browser once the browser/tab is closed;
+				Stored data will be accessible to any page from the same site opened in that window/tab
+			</p>
+			<hr>
+			<p>
+				<span class="semibold">JavaScript API</span>
+				(Applicable for both localStorage and sessionStorage)
+				get: localStorage.getItem(key); or localStorage[key];
+				set: localStorage.setItem(key, value); or localStorage[key] = value;
+				delete: localStorage.clear();
+			</p>
+			<hr>
+			<h1>jQuery</h1>
+			<p>
+				<span class="semibold">selecting object(s)</span> const obj = $(selector); or const obj = jQuery(selector);
+				<span class="semibold">wait until DOM is ready</span> $(document).ready(() => { /* ... */}); or $(() => { /* ... */});
+			</p>
+			<p>
+				<span class="semibold">events</span> obj[eventName](() => { /* ... */ }); or
+				obj.on({eventName1: () => { /* ... */ }, eventName2: () => { /* ... */ }});
+				<span class="semibold">providing data to event handler</span> obj.on(eventName, {key1: value1, key2: value2}, 
+				(e) => { /* e.data[key] */ });
+				<span class="semibold">removing event(s)</span> obj.off(eventName); (remove all: obj.off();)
+			</p>
 		</div>
 	</body>
 </html>
