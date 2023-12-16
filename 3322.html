@@ -485,6 +485,189 @@
 				(e) => { /* e.data[key] */ });
 				<span class="semibold">removing event(s)</span> obj.off(eventName); (remove all: obj.off();)
 			</p>
+			<hr>
+			<p>
+				<span class="semibold">getting &amp; setting HTML content</span>
+				html(): gets the HTML content (including markup) inside the first element together with its descendants, 
+				replaces the content of all selected elements with the new content;
+				text(): gets the text content only, from every element in the jQuery selection, together with its descendants;
+				replaces the content of all selected elements with the new content with any markup being shown as text;
+				val(): gets the value of the form first element and sets the value of all matching form elements
+			</p>
+			<p>
+				<span class="semibold">CSS manipulation</span>
+				attr(): get or set a specific attribute and its value;
+				removeAttr(): removes a specified attribute (and its value);
+				addClass(): adds a new value to the class attribute;
+				removeClass(): removes a value from the class attribute;
+				css(): get or set one or more style properties
+			</p>
+			<p>
+				<span class="semibold">DOM traversal</span>
+				parent(), parents(), parentsUntil(selector), children(), siblings(), next(), nextAll(), prev(), prevAll(),
+				find(selector), closest(selector)
+			</p>
+			<p>
+				<span class="semibold">Adding/removing elements</span>
+				append(), prepend(), after(), before(), remove(), empty(), detach(), clone()
+			</p>
+			<p>
+				<span class="semibold">Special effects</span>
+				show(), hide(), toggle()
+				(All three accept two optional arguments: speed (“slow”, “fast”, or miliseconds)
+				callback (a callback function to be executed after the effect));
+				fadeIn(), fadeOut(), fadeToggle(), fadeTo(speed, opacity), slideUp(), slideDown(), slideToggle()
+			</p>
+			<p class="tba">
+				animate() TBA
+			</p>
+			<p>
+				delay(): inserts a delay (“slow”, “fast” or miliseconds) between the execution of next special effect;
+				stop(stopAll): stops the currently running animation (stopAll defaults to false; if set to true, prevents running the
+				effects after this one)
+			</p>
+			<hr>
+			<p>
+				<span class="semibold">AJAX with jQuery</span>
+				obj.load(url, data, function(response, status, xhr)):
+				Fetch the HTML content from a URL and directly place the returned data into the selected element that
+				invoked this .load() call;
+				data (optional): an object/string sent to the server;
+				function (optional): a callback executed when the request completes and data insertion has been performed;	
+				xhr: the XMLHttpRequest object;
+				The POST method is used if data is provided as an object; otherwise, GET is assumed
+			</p>
+			<p>
+				$.get(url, data, function(response,status,xhr), datatype)/$.post(url, data, function(response,status,xhr), datatype):
+				Loads data using a GET/POST request;
+				Function is executed if the request succeeds;
+				datatype: xml, json, script, text or html; intelligent guess by default
+			</p>
+			<p>
+				$.ajax({/* args */}):
+				arguments:
+				url; method; data; contentType;
+				success: the callback function when the request succeeds, function(response, status, xhr);
+				error: the callback function when the request fails, function(xhr, status, HTTPstatusPhrase);
+				dataType; headers;
+				mostly used for requests where the other shorthand methods cannot be used
+			</p>
+			<hr>
+			<h1>PHP &amp; MySQL</h1>
+			<p>
+				<span class="semibold">Server-side scripting</span> Server-side scripting is a technique used in
+				web development which involves employing scripts on a web server which produce a response customized
+				for each client's request to the website; Customized means dynamically generating content
+			</p>
+			<p>
+				<span class="semibold">Debug functions</span> var_dump() shows the values and their types of a variable,
+				arrays and objects are explored recursively with values indented to show structure;
+				print_r() only shows the value in a human-readable format;
+				var_export() returns the information in a parsable string representation
+			</p>
+			<p>
+				<span class="semibold">JSON in PHP</span>
+				encoding to string: json_encode($obj_or_arr);
+				decode from string: json_decode($json, bool $decode_to_assoc_array);
+			</p>
+			<p class="tba">
+				<span class="semibold">Sessions</span>
+			</p>
+			<hr>
+			<h1>Web Services</h1>
+			<p>
+				Software system designed to support interoperable machine-to-machine interaction over a network
+				<span class="semibold">characterized by three factors</span>
+				What they do (the business functionality they expose);
+				Where they are (the website which exposes that functionality);
+				How they can be accessed (the set of published interfaces necessary to use the exposed functionality)
+			</p>
+			<p>
+				<span class="semibold">SOAP web services</span>
+				The Simple Object Access Protocol (SOAP) standard uses the XML language defining a message architecture and message formats;
+				Contains the following elements:
+				Envelope element (encapsulates the header, body and fault elements),
+				header element (optional),
+				body element,
+				fault element for the error response (Optional)
+				often contains a machine-readable description of the operations offered by the service
+				written in the Web Services Description Language (WSDL)
+			</p>
+			<hr>
+			<p>
+				<span class="semibold">REST</span>
+				defines a set of architectural principles by which you can design Web services that focus on a system's resources;
+				RESTful characteristics: uniform interface, client-server separation, stateless, cacheable, layered
+			</p>
+			<p>
+				Uniform interface: the service uses a directory structure-like URIs (protocol://service-name/ResourceType/ResourceID)
+				to address its resources;
+				use HTTP methods explicitly and be consistent with the HTTP protocol (POST->create, GET->read, PUT->update, DELETE->delete)
+			</p>
+			<p>
+				Stateless: Each individual request contains all the information the server needs to perform the request and return a response,
+				regardless of other requests made by the same user before
+			</p>
+			<p>
+				Cacheable: caching shall be applied to resources when applicable; resources must declare themselves cacheable;
+				The server does this by including a Cache-Control and Last-Modified (a date value) HTTP response header
+			</p>
+			<p>
+				Layered: Between the client and the server there might be a number of servers in the middle; should not affect the request or the response
+			</p>
+			<hr>
+			<h1>NodeJS</h1>
+			<p>declare global variables across module: global[varname] = value;</p>
+			<p>creating a simple listener: const http = require('http'); const server = http.createServer((req, res) => {
+				res.statusCode = code; res.setHeader(key, value); res.end(body); });</p>
+			<hr>
+			<p>
+				<span class="semibold">express</span> app[method](path, handler, handler /* ... */);
+				handler: function(req, res, next) or function(req, res);
+			</p>
+			<p>
+				<span class="semibold">request properties &amp; methods</span>
+				app, baseUrl, cookies, hostname, ip, method, originalUrl, params, path, protocol, query
+			</p>
+			<p>
+				<span class="semibold">response properties &amp; methods</span>
+				app, headerSent, locals, append(), cookie(), clearCookie(), end(), get(), json(), redirect(), render(),
+				send(), sendStatus(), set(), status()
+			</p>
+			<hr>
+			<h1>MongoDB</h1>
+			<p>
+				an example of NoSQL; document structure similar to JSON
+			</p>
+			<p>
+				<span class="semibold">mongosh commands</span>
+				switch to/create new database: use db;
+				add document(s): db.collection.insertOne(obj); or db.collection.insertMany([obj1, obj2, ...]); (automatically creates collection)
+				display the collection: show collection;
+				query: db.collection.find({key: condition}, {field1: display1, field2: display2}) (e.g. {age: {$gt:21}}, {name: 1, number: 1} | {name: 'Danny'}, {name: 1, number: 1});
+				get document count: db.collection.countDocuments();
+				limit document count in query: db.collection.find(...).limit(limitCount);
+				sorting: db.collection.find(...).sort({key: order}).limit(limitCount) (order: 1 is ascending, -1 is descending);
+				update: db.collection.updateOne({key: condition}, {$set: {key: newValue}});
+				replace: db.collection.replaceOne({key: condition}, obj);
+				delete: db.collection.deleteOne({key: condition}) or db.collection.deleteAll({key: condition});
+				rename collection: db.collection.renameCollection(newName);
+				drop collection: db.collection.drop();
+				drop database: db.dropDatabase();
+			</p>
+			<hr>
+			<p>
+				<span class="semibold">mongoose</span>
+				connecting: const mongoose = require("mongoose"); mongoose.connect(url);
+				creating a schema: const schema = new mongoose.Schema(obj)
+				(field: type | field: {type, min, max} | field: {type, minlength, maxlength} | field: subobj);
+				creating a model: const model = mongoose.model(singularNameOfCollection, schema);
+				create &amp; save document: const newDocument = new model(obj); newDocument.save((err, res) => { /* ... */ });
+				or newDocument.save().then(res => { /* ... */ }).catch(err => { /* ... */ });
+			</p>
+			<p>
+				query: model.find({key: condition}).sort({key: order}).limit(limitCount).exec((err, result) => { /* ... */ });
+			</p>
 		</div>
 	</body>
 </html>
