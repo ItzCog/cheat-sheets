@@ -266,8 +266,16 @@
 			</p>
 			<hr>
 			<h1>CSS</h1>
-			<p class="tba">
-				TBA
+			<p>
+				<span class="semibold">selectors</span> a+b (selects the first &lt;a&gt; placed right after a &lt;b&gt;);
+				a~b (selects every &lt;b&gt; preceded by an &lt;a&gt;);
+				[a] (selects every element with attribute a);
+				[a=b] (selects every element with attribute a = b);
+				[a~=b] (selects every element with attribute a containing word b);
+				[a|=b] (selects every element with attribute a = b or has prefix "b-");
+				[a^=b] (selects every element with attribute a = b or has prefix b);
+				[a$=b] (selects every element with attribute a = b or has postfix b);
+				[a*=b] (selects every element with attribute a containing substring b);
 			</p>
 			<hr>
 			<p>
@@ -450,8 +458,11 @@
 			</p>
 			<hr>
 			<h1>Drag and Drop</h1>
-			<p class="tba">
-				TBA
+			<p>
+				events: <span class="semibold">draggable</span> dragstart, drag, dragend;
+				<span class="semibold">droppable</span> dragenter, dragover, dragleave, drop;
+				useful methods on event object: e.preventDefault(); e.dataTransfer.setData(key, value);
+				e.dataTransfer.getData(key);
 			</p>
 			<hr>
 			<h1>Storage</h1>
@@ -518,8 +529,11 @@
 				callback (a callback function to be executed after the effect));
 				fadeIn(), fadeOut(), fadeToggle(), fadeTo(speed, opacity), slideUp(), slideDown(), slideToggle()
 			</p>
-			<p class="tba">
-				animate() TBA
+			<p>
+				animate(params, speed, easing, callback);
+				params: { propertyName: value }; can animate CSS properties represented as number;
+				absolute value: "150px"; relative value: "+=15px"; property name uses camelCase;
+				easing: "swing" | "linear"
 			</p>
 			<p>
 				delay(): inserts a delay (“slow”, “fast” or miliseconds) between the execution of next special effect;
@@ -570,8 +584,12 @@
 				encoding to string: json_encode($obj_or_arr);
 				decode from string: json_decode($json, bool $decode_to_assoc_array);
 			</p>
-			<p class="tba">
+			<p>
 				<span class="semibold">Sessions</span>
+				start session: session_start();
+				set session value: $_SESSION[key] = value;
+				remove session value: unset($_SESSION[key]);
+				end session: session_destroy();
 			</p>
 			<hr>
 			<h1>Web Services</h1>
@@ -622,8 +640,11 @@
 				res.statusCode = code; res.setHeader(key, value); res.end(body); });</p>
 			<hr>
 			<p>
-				<span class="semibold">express</span> app[method](path, handler, handler /* ... */);
-				handler: function(req, res, next) or function(req, res);
+				<span class="semibold">express</span>
+				const express = require('express');
+				const app = new express();
+				app[method](path, handler, handler /* ... */);
+				handler: function(req, res); or function(req, res, next) (middleware) or function(err, req, res, next) (error handling);
 			</p>
 			<p>
 				<span class="semibold">request properties &amp; methods</span>
@@ -633,6 +654,22 @@
 				<span class="semibold">response properties &amp; methods</span>
 				app, headerSent, locals, append(), cookie(), clearCookie(), end(), get(), json(), redirect(), render(),
 				send(), sendStatus(), set(), status()
+			</p>
+			<hr>
+			<p>
+				<span class="semibold">routers</span>
+				create: const router = new express.Router(); add listeners the same way as express objects;
+				use: app.use(path, router);
+			</p>
+			<hr>
+			<p>
+				<span class="semibold">static files</span>
+				app.use(path, express.static(directory)); (name of directory is not part of URL);
+			</p>
+			<p>
+				<span class="semibold">pug</span> using pug in express: app.set("view engine", "pug");
+				app.set("views", directory);
+				rendering: res.render(fileName, { key: value });
 			</p>
 			<hr>
 			<h1>MongoDB</h1>

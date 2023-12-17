@@ -2,66 +2,199 @@
 <html lang="en">
 	<head>
 		<link rel="stylesheet" href="style.css">
+		<style>
+			body {
+				font-size: 8px !important;
+			}
+
+			h1 {
+				font-size: 8px !important;
+			}
+		</style>
 	</head>
 	<body>
 		<div>
 			<h1>Intro</h1>
 			<p class="tba">sike</p>
+			<h1>Design and Implementation</h1>
+			<p>
+				the stage where an executable software system is developed
+			</p>
+			<hr>
+			<h1>UX design</h1>
+			<p>
+				a set of incremental process activities that focus on providing a positive experience for users;
+				broader than UI design and usability/accessibility engineering
+				<span class="semibold">Usability Guidelines</span>
+				Anticipation, Communication, Consistency, Controlled autonomy, Efficiency,
+				Flexibility, Focus, Human interface objects, Latency reduction, Learnability,
+				Metaphors, Readability, Track state, Visible navigation
+				<span class="semibold">Accessibility Guidelines</span>
+				Application Accessibility, Response Time, Help Facilities, Error Handling,
+				Menu and Command Labeling, Internationalization
+			</p>
+			<hr>
+			<h1>Architectural design</h1>
+			<p>
+				critical link between design and requirements engineering;
+				identifies the main structural components in a system and the relationships between them;
+				this process outputs an architectural model
+				<span class="semibold">Agility and architecture</span> an early stage of agile processes is to
+				design an overall systems architecture, because refactoring architecture is usually expensive
+				<br>
+				<span class="semibold">Abstraction</span>
+				in the small: the architecture of individual programs (how a program is decomposed into components)
+				in the large: the architecture of complex enterprise systems (including other systems, programs, and program components)
+				<br>
+				<span class="semibold">Advantages of explicit architecture</span>
+				Stakeholder communication, System analysis, Large-scale reuse
+				<br>
+				<span class="semibold">Architecture &amp; system characteristics</span>
+				performance, maintainability, availability (redundant components &amp; mechanisms for fault tolerance),
+				security (layered architecture with critical assets in the inner layers), 
+				safety (localize safety-critical features in a small number of sub-systems)
+				<br>
+				<span class="semibold">Architectural patterns</span>
+				a means of representing, sharing &amp; reusing knowledge;
+				should include information about when they are/when they are not useful
+				e.g. Model-View-Controller (MVC) pattern, Layered architecture pattern, Repository architecture pattern,
+				Client-server architecture pattern
+			</p>
+			<hr>
+			<h1>Design patterns</h1>
+			<p>
+				a way of reusing abstract knowledge about a problem and its solution;
+				should be sufficiently abstract to be reused in different setting;
+				usually make use of object-oriented characteristics
+				<span class="semibold">elements</span> name, problem description, solution description
+				(a template for a design solution that can be instantiated in different ways);
+				consequences (results and trade-offs of applying the pattern)
+				<br>
+				<span class="semibold">Application architectures</span>
+				designed to meet an organizational need
+				(A generic application architecture is an architecture for a type of software system that may be
+				configured &amp; adapted to create a system that meets specific requirements)
+				e.g. Transaction processing systems, Information systems architecture
+			</p>
+			<hr>
+			<h1>Testing</h1>
+			<p>
+				execute a program using artificial data;
+				<span class="semibold">types</span> validation testing, to demonstrate that the software meets its requirements
+				(at least one test for each requirement in custom software, each feature in general software);
+				defect testing, to discover faults or defects in the software;
+				<br>
+				<span class="semibold">V &amp; V confidence</span> verification (conform to its specification) &amp;
+				validation (do what the user really requires); aim to establish confidence that the system is fit for purpose;
+				depends on software experience, user expectations, marketing environment
+				<br>
+				<span class="semibold">Inspections &amp; testing</span>
+				inspection (static): involves examining the source representation, aimed to discover anomalies and defects; no execution;
+				pros: no concern for interaction between errors, can inspect incomplete systems, can consider broader quality attributes
+				(e.g. compliance with standards, portability &amp; maintainability);
+				cons: cannot check unexpected interaction between parts, cannot check non-functional requirements
+				<br>
+				<span class="semibold">Stages of testing</span> Development/Release/User testing;
+				<br>
+				<span class="semibold">Development testing</span> includes unit/component/system testing;
+				automated unit testing: unit testing frameworks provide generic test classes, extend to create specific test cases;
+				consists of setup, call &amp; assertion part
+				<br>
+				<span class="semibold">Types of unit testing</span> one to reflect normal operation, one to check abnormal inputs processing
+				<br>
+				Testing strategies:
+				<span class="semibold">Partition testing</span> identify groups of inputs with common characteristics &amp; should be processed in the same way;
+				<span class="semibold">Coverage testing</span> execute/cover certain elements of a program;
+				<span class="semibold">Guideline-based testing</span> <br>
+				<span class="semibold">Black-box testing</span> based from the specification, no knowledge of code required;
+				(cons: cannot test all possible inputs/outputs, some code parts might be unreachable, cannot check extra functionality)
+				<span class="semibold">White-box testing</span> based on analysis of code (coverage-based testing approaches: statement, branch, path, loop)
+				(cons: cannot check if a program matches the specification, cannot check if all functionalities have been implemented,
+				cannot find missing program logic); <br>
+				<span class="semibold">Testing guidelines</span>
+				Try sequences with only one value; Use different-sized sequences across tests;
+				Derive tests so that the first, middle and last elements of the sequence are accessed;
+				Force the system to generate all error messages; Try to force an input buffer overflow;
+				Repeat the same input/series of inputs numerous times; Force invalid outputs;
+				Force invalid outputs; Force too large/small computation results
+				<br>
+				<span class="semibold">Component testing</span> focus on showing the component interface behaves according to specification;
+				<span class="semibold">Interface types</span> parameter / shared memory / procedural (function call) / message passing (services);
+				<span class="semibold">Interface errors</span> misuse/misunderstanding/timing error;
+				<span class="semibold">Guidelines</span> Make parameters go at the extreme ends of their ranges;
+				Test pointer parameters with nullptr; Try to cause a component failure; Use stress testing in message passing systems;
+				In shared memory systems, vary the order of component activation
+				<br>
+				<span class="semibold">System testing</span>
+				checks that components are compatible, interact correctly &amp; transfer the right data at the right time
+				(Use-case testing: testing the use case to force these interactions to occur)
+				<br>
+				<span class="semibold">Test-driven development (TDD)</span>
+				develop code incrementally, along with a test for that increment; (introduced as part of agile methods but also useable in plan-driven development)
+				pros: code coverage, regression testing (testing to check that changes have not broken previously working code;
+				simplified with automated testing),
+				simplified debugging, system documentation
+				<br>
+				<span class="semibold">Release testing</span> test a release for a system intended for use outside of the development team;
+				primary goal to convince the supplier of the system that it is good enough; a form of system testing, usually black-box,
+				focuses on validation; strategies: requirement-based testing &amp; performance testing (should reflect the profile of use;
+				use tests where load is steadily increases until performance is unacceptable; stress testing: deliberately overloads the system)
+				<br>
+				<span class="semibold">User/customer testing</span>
+				types: alpha (users work with the development team, test at the developer's site);
+				beta (users experiment with a system release, raise problems discovered with system developers);
+				acceptance (customers test a system, decide whether it is ready to be accepted &amp; deployed in the customer environment;
+				mainly for custom systems)
+				<span class="semibold">Agile methods &amp; acceptance testing</span>
+				user is part of the development team, responsible for making decisions on the system acceptability;
+				tests are defined by the user/customer, automatically run for each change;
+				no separate acceptance testing process;
+				main problem: whether or not this user is 'typical' and represents all stakeholders' interests
+			</p>
 			<hr>
 			<h1>Software Evolution</h1>
 			<p>
 				<span class="semibold">Importance</span> Revolution is required to maintain the value of business software systems;
 				Majority of the software budget is devoted to changing &amp; evolving existing software
-			</p>
-			<p>
+				<br>
 				<span class="semibold">Evolution and servicing</span>
 				Evolution: In operational use, evolving as new requirements are proposed and implemented in the system;
 				Servicing: Small tactical changes to keep it operational, no new functionality added;
 				Phase-out: Still used but no further changes
-			</p>
-			<p>
+				<br>
 				<span class="semibold">Change identification and evolution processes</span>
-				identification: Which component, Impact, Cost; Impact Analysis -> Accept or not; If accept, release planning
+				Identification; Impact Analysis -> Accept or not; If accept, release planning
 				(Fault repair, Environmental adaptation, System enhancement); Change Implementation
-			</p>
-			<p>
+				<br>
 				<span class="semibold">Change implementation</span>
 				If changes implementation developer is not original system developer -> program understanding
 				(how program is structured, how it delivers functionality, how changes might affect the program);
 				If requirements specification and design documents are available, update documents;
 				Proposed changes may be prototyped
-			</p>
-			<p>
+				<br>
 				<span class="semibold">Urgent change requests</span>
 				may have to be implemented without going through all stages of the SE process
 				(If a serious system fault has to be repaired to allow normaloperation to continue /
 				If changes to the system's environment have unexpected effects /
 				If there are business changes that require a very rapid response)
-			</p>
-			<p>
+				<br>
 				<span class="semibold">Agile methods and evolution</span>
 				based on incremental development hence the seamless transition from development to evolution;
 				Automated regression testing is particularly valuable;
 				Changes may be expressed as additional user stories
-			</p>
-			<p>
+				<br>
 				Handover problems: development team uses Agile but evolution team prefers Plan-based -> needs detailed documentation;
 				development team uses Plan-based but evolution team prefers Agile -> starts from scratch developing automated test and refactoring
-			</p>
-			<hr>
-			<p>
+				<br>
 				<span class="semibold">Legacy systems</span> older systems that rely on languages and technology
 				that are no longer used for new systems development (not limited to software)
-			</p>
-			<p>
+				<br>
 				<span class="semibold">Replacement</span> risky (lack of complete system specification,
 				tight integration of system &amp; business processes,
 				undocumented business rules, new software development may be late/over budget),
 				expensive (inconsistent programming style, use of obsolete programming languages, inadequate documentation,
 				structure degradation, hard-to-understand optimizations, data errors/duplication/inconsistency)
-			</p>
-			<hr>
-			<p>
+				<br>
 				<span class="semibold">Software maintenance</span> Modifying a program after it has been put into use
 				(normally no major changes to system architecture)
 				types: Fault repairs, Environmental adaptation, Functionality addition and modification
