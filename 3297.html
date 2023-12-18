@@ -5,6 +5,8 @@
 		<style>
 			body {
 				font-size: 8px !important;
+				letter-spacing: -0.3px;
+				line-height: 90%;
 			}
 
 			h1 {
@@ -15,10 +17,134 @@
 	<body>
 		<div>
 			<h1>Intro</h1>
-			<p class="tba">sike</p>
+			<p>
+				<span class="semibold">Software engineering</span>
+				economies of all developed nations are dependent on software;
+				concerned with theories, methods &amp; tools for professional software development
+				<span class="semibold">Software costs</span>
+				often dominate computer system costs; software costs on a PC are often greater than hardware costs;
+				maintenance costs more than development; software engineering is concerned with cost-effective software development
+				<br>
+				<span class="semibold">Professional software development</span>
+				software definition: computer programs &amp; associated documentation (might be generic/customized);
+				Essential good software attributes: maintainability, dependability(security), efficiency,
+				acceptability (to the type of users it is designed for; must be understandable, usable &amp; compatible with other systems)
+				<br>
+				<span class="semibold">Product specification</span>
+				specification of what the software should do; decisions on software change are made by the owners
+				(developers for generic, customers for customized)
+				<br>
+				<span class="semibold">Software engineering</span>
+				an engineering discipline that is concerned with all aspects of software production from the early stages
+				of system specification through to maintaining the system after it has gone into use;
+				importance: need to produce reliable and trustworthy systems economically and quickly;
+				usually cheaper to use software engineering methods and techniques for software systems;
+				<span class="semibold">Process activities</span> specification, development, validation, evolution;
+				<span class="semibold">General issues</span> heterogeneity(compatibility), business &amp;
+				social (environment) change, security &amp; trust, scale;
+				<span class="semibold">Diversity</span>
+				engineering methods/tools used depend on: application type, customer requirements, dev team background;
+				Application types: stand-alone (no network required) apps, interactive transaction-based apps,
+				embedded control systems (for hardwares), batch (data) processing systems, entertainment systems,
+				modelling &amp; simulation systems, data collection systems, systems of systems
+				<span class="semibold">Fundamentals</span> Use a managed and understood development process;
+				Dependability and performance; Understanding and managing the software specification and requirements;
+				Reuse software when appropriate
+				<span class="semibold">Ethics</span> Confidentiality (whether or not a formal confidentiality agreement has been signed)
+				&amp; Competence (should not misrepresent their competence level);
+				Issues: IP rights, computer misuse
+			</p>
+			<hr>
+			<h1>Requirements engineering</h1>
+			<p>
+			process of establishing the services a customer requires for a system &amp; the constraints it operates and is developed under;
+			(System requirements: descriptions of the system services and constraints generated during the requirements engineering process)
+			Requirements may be: the basis for a bid for a contract (must be open to interpretation) &amp;
+			the basis for the contract itself (must be defined in detail)
+			<span class="semibold">Requirement types</span>
+			User requirements (natural language statements + diagrams of the system's services and operational constraints,
+			mainly for customers),
+			System requirements (structured document with detailed descriptions of the system's functions, services &amp;
+			operational constraints)
+			<br>
+			<span class="semibold">System stakeholders</span> person/organization who affects/is affected by the system in some way,
+			therefore having a legitimate interest (types: End users, System managers, System owners, External stakeholders)
+			<br>
+			<span class="semibold">Functional requirements</span>
+			Statements of services the system should provide / how the system should react to particular inputs /
+			how the system should behave in particular situations (May state what the system should not do);
+			Depend on the type of software, expected users and the system type where the software is used;
+			User requirements may be high-level statements of what the system should do;
+			System requirements should describe the system services in detail;
+			(problems: imprecision, incompleteness, inconsistency)
+			<span class="semibold">Non-functional requirements</span>
+			define system properties and constraints (e.g. reliability, response time, storage requirement,
+			I/O device capability, interface data representation) or process requirements (e.g. programming language, dev method, IDE);
+			May be more critical than functional requirements; may affect overall architecture &amp; generate extra functional requirements;
+			(problem: imprecision)(goal: reflects general intention of the user (e.g. ease of use /
+			ability to recover from failure / rapid user response / minimize errors))
+			(metrics: speed, size, ease of use, reliability, robustness, portability)
+			<br>
+			Requirements engineering process: <span class="semibold">elicitation &amp; analysis</span>
+			stages: Interacting with stakeholders to discover &amp; understand their requirements;
+			Groups unstructured collection of requirements, organizes them into coherent clusters;
+			Prioritizing requirements, resolving conflicts;
+			Document requirements, input them into the next round;
+			(problems: stakeholders don't know what they really want, stakeholders express requirements in their own terms,
+			conflicting requirements, organisational and political factors; requirements change during analysis)
+			<br>
+			<span class="semibold">Requirements discovery</span> methods:
+			<span class="semibold">Ethnography/Observation</span> observe &amp; analyze how people work, no explanation required;
+			may observe social and organisational factors;
+			effective for understanding existing processes but cannot identify new features that should be added;
+			<span class="semibold">Interview</span> types: Closed interviews, based on pre-determined list of questions; Open interviews,
+			where various issues are explored;
+			tips: be open-minded, avoid pre-conceived ideas; prompt the interviewee to get discussions;
+			problems: not good for understanding domain requirements (requirements engineers cannot understand specific domain terminology);
+			bad attitude; lack of research/basic understanding; no questions; unnecessary arguments on one matter;
+			too many infeasible suggestions; no follow-up for previous suggestions
+			<p class="tba">💀💀💀 I find in sessions like that I get really exhausted in the end 💀💀💀</p>
+			</p>
+			<hr>
 			<h1>Design and Implementation</h1>
 			<p>
 				the stage where an executable software system is developed
+				<span class="semibold">Object-oriented design process</span> involves developing different system models,
+				may not be cost-effective for small systems, but is an important communication mechanism for large system
+				developed by many groups; Common steps (involved model):
+				Define the context and modes of use of the system (context/class, use case);
+				Design the system architecture;
+				Identify the principal system objects (object);
+				Develop design models (sequence, state);
+				Specify object interfaces
+				<br>
+				<span class="semibold">Implementation issues:</span>
+				<span class="semibold">Reuse</span> levels: abstraction, object, component(collection of objects), system;
+				costs: searching, buying, adaptation/configuration, integration
+				<span class="semibold">Configuration management</span> general process of managing a changing software system,
+				aimed to support the integration process so developers can access the project code and documents in a controlled way,
+				find out what changes have been made, &amp; compile and link components to create a system;
+				activities: version management, system building/integration (help define versions of components used to create each version of a system),
+				Problem tracking/change management (allows users to report bugs/other problems, allow developers to see who is working on these problems &amp; when they are fixed)
+				Release management (planning the functionality of new releases, organizing the software for distribution)
+				<span class="semibold">Host-target development</span> (development vs. execution platform)
+				dev platform tools: compiler + code editor, debugging system, graphical editor, testing tools, project support tools
+				<br>
+				<span class="semibold">Component/system deployment factors</span>
+				component's hard/software requirements,
+				system availability requirement (high availability systems may require components to be
+				deployed on more than one platform; in the event of platform failure, an alternative
+				implementation is available),
+				Component communications (If there is a high level of communications between components, 
+				deploy them on the same platform / platforms that are physically close to one other)
+				<br>
+				<span class="semibold">Open source development</span> business model: not selling software, but selling support
+				(allows cheaper and quicker development &amp; creates a community of users);
+				legally the developer(company/individual) still own the code &amp; can place restrictions on code usage
+				<span class="semibold">License models</span> GPL (reciprocal, softwares using a GPL software must also be open-source),
+				LGPL (allows components linking to open source code without publishing components source code),
+				BSD (non-reciprocal, not obliged to publish changes/modifications to open source code)
+				MIT (BSD variant)
 			</p>
 			<hr>
 			<h1>UX design</h1>
