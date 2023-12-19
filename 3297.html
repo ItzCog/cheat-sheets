@@ -6,7 +6,7 @@
 			body {
 				font-size: 8px !important;
 				letter-spacing: -0.3px;
-				line-height: 90%;
+				line-height: 88%;
 			}
 
 			h1 {
@@ -54,6 +54,98 @@
 				&amp; Competence (should not misrepresent their competence level);
 				Issues: IP rights, computer misuse
 			</p>
+			<hr>
+			<h1>Software processes</h1>
+			<p>
+			structured set of activities required to develop a software system;
+			involving: Specification, Design &amp; implementation, Validation, Evolution;
+			description: activities &amp; ordering, products, roles, pre-/post-conditions;
+			<span class="semibold">Plan-driven &amp; agile processes</span>
+			Plan-driven: all activities planned in advance, progress is measured against the plan;
+			Agile: incremental planning;
+			most practical processes include elements of both;
+			<br>
+			<span class="semibold">Models</span> waterfall: plan-driven, separate and distinct phases of specification &amp; development;
+			drawbacks: difficulty of accommodating change, freezing software specification too early, inflexible project partitioning;
+			mostly for large systems developed at several sites;
+			incremental: interleaved specification, development &amp; validation;
+			benefits: good for accommodating changing customer requirements; easier to get customer feedback;
+			earlier use &amp; value from software;
+			problems: process not visible (regular deliverables required; expensive documentation for quick development);
+			structure degrade (needs refactoring);
+			integration &amp; configuration: systems are integrated from existing components or application systems, elements can be configured;
+			(reusable element types: stand-alone app system, components(collection of objects/web services))
+			Pros: lower costs &amp; risks, faster delivery and deployment;
+			Cons: may not meet real needs of users, no control over evolution of reused elements
+			<br>
+			<span class="semibold">Changes</span> (business changes, new technologies, changing platforms)
+			cost of change = rework + new functionalities;
+			Reducing rework costs: change anticipation, change tolerance
+			<br>
+			<span class="semibold">Prototyping</span>
+			an initial version of a system for demonstrating concepts &amp; testing design options;
+			can help with requirements elicitation/validation and developing UI design;
+			benefits: improved system usability, closer match to users' real needs, improved design quality,
+			improved maintainability, reduced development effort;
+			<span class="semibold">Process</span> prototyping plan, outline definition, executable prototype, evaluation report;
+			prototypes should be discarded after development as they are not a good basis for a production system
+			<br>
+			<span class="semibold">Incremental delivery</span> development and delivery is broken down into increments,
+			each delivering part of the required functionality; (prioritized user requirements)
+			pros: system functionality is available earlier;
+			early increments act as a prototype, help to elicit requirements for later increments;
+			lower risk of overall project failure;
+			highest priority services tend to receive the most testing;
+			cons: most systems require a set of basic facilities; conflicts with the procurement model of many organizations;
+			<br>
+			<span class="semibold">Process improvement</span> a way of enhancing software quality, reducing costs &amp; accelerating development;
+			requires understanding existing processes and changing them;
+			Approaches: process maturity (quality &amp; predictability), agile (rapid delivery &amp; responsiveness);
+			Cycle: measure, analyze, change; Metrics: development time, resources, number of occurrences of a particular event
+			</p>
+			<hr>
+			<h1>Agile development</h1>
+			Background: Rapid development and delivery is often the most important requirement for software systems;
+			Features: incremental delivery involving stakeholders, frequent delivery, extensive tool support, minimal documentation;
+			Principles: Customer involvement, Incremental delivery, People not process, Embrace change, Maintain simplicity;
+			Applicability: small or medium-sized product for sale; within an organization, with a clear customer commitment &amp;
+			few external rules and regulations;
+			<br>
+			<span class="semibold">Extreme programming</span> practices: Incremental planning (Requirements are recorded on story cards,
+			determined by the time available and relative priority, break stories into development tasks),
+			Small releases (frequent &amp; incremental), Simple design (focus on current requirements only),
+			Test-first development (tests before implementation), Refactoring (improve code as soon as possible, keeping code simple),
+			Pair programming, Collective ownership (everyone works on all areas together, anyone can change anything),
+			Continuous integration (integrate completed task into whole system),
+			Sustainable pace (do not accept large amount of overtime),
+			On-site customer (a representative of end-user/customer in team available full time)
+			<br>
+			<span class="semibold">Scrum</span> Phases: outline planning, sprint cycles (increments), wrap-up;
+			Members: dev team (group of self-organizing software developers, develop softwares &amp; essential documents),
+			scrum master (ensure Scrum process is followed, guide the team to use Scrum effectively, interface with rest of the company),
+			product owner (individual/small group, identify & prioritize product features or requirements,
+			continuously review product backlog)
+			Cycle: list to do items on backlog (involves all of the project team);
+			product owner prioritizes the items in product backlog, dev team selects &amp; develops the items;
+			(scrum board: forecast(user stories), to-do, in-progress, done)
+			daily meeting of the project team, reviewing progress and prioritizing work;
+			(end of development and testing) review meeting, update backlog, present to stakeholders, process improvement;
+			scrum benefits: breaks project down to manageable &amp; understandable chunks;
+			unstable requirements do not hold up progress;
+			whole team have visibility of everything &amp; improved communication;
+			customers see on-time incremental delivery &amp; give feedback;
+			trust between customers and developers, creates positive culture
+			<br>
+			<span class="semibold">Scaling agile methods</span>
+			Scaling up: large software systems; Scaling out: across a large organization;
+			<span class="semibold">Practical problems</span> incompatible with the legal approach to contract definition;
+			not good for software maintenance (lack of documentation, customer involvement, dev team continuity);
+			methods were designed for small co-located teams;
+			completely incremental requirements engineering is impossible;
+			there cannot be a single product owner/customer representative;
+			impossible to focus only on the system code;
+			cross-team communication mechanisms required;
+			practically impossible continuous integration
 			<hr>
 			<h1>Requirements engineering</h1>
 			<p>
@@ -103,7 +195,42 @@
 			problems: not good for understanding domain requirements (requirements engineers cannot understand specific domain terminology);
 			bad attitude; lack of research/basic understanding; no questions; unnecessary arguments on one matter;
 			too many infeasible suggestions; no follow-up for previous suggestions
-			<p class="tba">💀💀💀 I find in sessions like that I get really exhausted in the end 💀💀💀</p>
+			<br>
+			<span class="semibold">User stories and scenarios</span>
+			User stories: real-life examples of how a system can be used;
+			Scenario: description of how a system is used for a particular task (structured form of user story);
+			<br>
+			<span class="semibold">Requirements specification</span>
+			process of writing down the user &amp; system requirements in a requirements document;
+			user requirements have to be understandable by end-users &amp; customers without a technical background;
+			system requirements are more detailed &amp; may include more technical information;
+			may be part of a contract (needs to be as complete as possible);
+			Forms: natural language, structured natural language, graphical notations, mathematical specifications
+			Native language guidelines: invent a standard format for all requirements;
+			use consistent language (e.g. "shall" for mandatory, "should" for desirable);
+			highlight key parts; avoid heavily-technical terms;
+			include an explanation/rationale about why a requirement is necessary;
+			Problems: lack of clarity, confusion, amalgamation;
+			<span class="semibold">Software requirements document</span> (aka Software Requirements Specification/SRS)
+			the official statement of what is required of the system developers;
+			should include both a definition of user requirements and a specification of the system requirements;
+			<span class="semibold">Variability</span>
+			document info depends on system type and development approach;
+			structure: preface, intro, glossary, user requirements definition, system architecture,
+			system requirements specification, system models, system evolution, appendices, index
+			<br>
+			<span class="semibold">Requirements validation</span>
+			concerned with demonstrating that the requirements define the system
+			that the customer really wants;
+			requirements error costs are high so validation is very important;
+			Checking: validity, consistency, completeness, realism, verifiability;
+			Techniques: requirement reviews, prototyping, test case generation;
+			<br>
+			<span class="semibold">Requirements management</span>
+			process of managing changing requirements during requirements engineering &amp; system development;
+			keep track of individual requirements and maintain links between dependent requirements &amp; 
+			establish a formal process for making change proposals and linking these to system requirements;
+			deciding if a requirements change should be accepted
 			</p>
 			<hr>
 			<h1>Design and Implementation</h1>
